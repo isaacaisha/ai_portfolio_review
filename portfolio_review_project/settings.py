@@ -26,7 +26,12 @@ SECRET_KEY = 'django-insecure-1fe!2!us8hs_x5$n9e)^4+ny1)=*e2k*vhg(bn-rf*p8(y13z8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['t1m-resilient-raman.circumeo-apps.net', '*']
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://t1m-resilient-raman.circumeo-apps.net'
+]
 
 
 # Application definition
@@ -127,13 +132,20 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-# Static files (CSS, JavaScript, Images)
+
+# URL to use when referring to static files located in STATIC_ROOT
 STATIC_URL = '/static/'
 
-# Directory to collect static files for production
+# The absolute path to the directory where collectstatic will collect static files for deployment
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Directories to find static files in development
+# URL to use when referring to media files located in MEDIA_ROOT
+MEDIA_URL = '/media/'
+
+# The absolute path to the directory where media files are stored
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Additional locations the staticfiles app will traverse to find static files
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
