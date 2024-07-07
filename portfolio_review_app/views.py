@@ -8,6 +8,7 @@ from django.shortcuts import render
 from selenium import webdriver
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from .models import Review
 
 
@@ -105,6 +106,7 @@ def get_review(screenshot_url):
     return review_text
 
 
+@csrf_exempt
 @require_http_methods(["POST"])
 def submit_url(request):
     data = json.loads(request.body)
