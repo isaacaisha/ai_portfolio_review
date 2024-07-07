@@ -1,5 +1,6 @@
 import json
 import os
+import openai
 import cloudinary
 import cloudinary.uploader
 import requests
@@ -11,6 +12,8 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Review
 
+
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 # Configuration       
 cloudinary.config( 
