@@ -1,6 +1,5 @@
 import json
 import os
-import openai
 import cloudinary
 import cloudinary.uploader
 import requests
@@ -12,8 +11,6 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Review
 
-
-openai.api_key = os.getenv('OPENAI_API_KEY')
 
 # Configuration       
 cloudinary.config( 
@@ -91,7 +88,7 @@ def get_review(screenshot_url):
     headers = {
         "accept": "application/json",
         "content-type": "application/json",
-        "Authorization": "VF.DM.668a1b221d8545d5b874c748.M2F4coDsRm2khrak"
+        "Authorization": os.getenv('CLOUDINARY_AUTHORIZATION')
     }
 
     response = requests.post(url, json=payload, headers=headers)
