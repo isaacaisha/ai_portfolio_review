@@ -26,12 +26,9 @@ SECRET_KEY = 'django-insecure-1fe!2!us8hs_x5$n9e)^4+ny1)=*e2k*vhg(bn-rf*p8(y13z8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['t1m-resilient-raman.circumeo-apps.net', '*']
+ALLOWED_HOSTS = ['t1m-resilient-raman.circumeo-apps.net', '*', 'localhost', '127.0.0.1']
 
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://t1m-resilient-raman.circumeo-apps.net'
-]
+CSRF_TRUSTED_ORIGINS = ['https://t1m-resilient-raman.circumeo-apps.net']
 
 
 # Application definition
@@ -154,23 +151,3 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# Logging Configuration Options
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        '': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
