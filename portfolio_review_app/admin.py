@@ -3,4 +3,6 @@ from .models import Review
 
 
 # Register your models here.
-admin.site.register(Review)
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('site_url', 'site_image_url', 'feedback', 'user_rating')
